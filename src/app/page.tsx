@@ -1,10 +1,9 @@
-import Content from "@/components/content";
-import Image from "next/image";
+import ExitAnimation from "@/components/ExitAnimation";
 
 export default function Home() {
   return (
     <div className="">
-      <Content/>
+      <ExitAnimation/>
     </div>
   );
 }
