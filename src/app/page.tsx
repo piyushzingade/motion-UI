@@ -1,10 +1,9 @@
-import Input from "@/components/input";
+import ChatInput from "@/components/ChatInput";
 
 export default function Home() {
   return (
     <div className="">
-      {/* <ExitAnimation/> */}
-      <Input />
+      <ChatInput />
     </div>
 
   );
