@@ -6,7 +6,6 @@ export const AnimatedArrowSVG = ({
     onSendClick,
 }: {
     hasText: boolean
-    isHovering: boolean
     onSendClick: boolean
 }) => {
     return (
