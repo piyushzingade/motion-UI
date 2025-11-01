@@ -139,7 +139,6 @@ export default function ChatInput() {
                         >
                             <AnimatePresence mode="wait">
                                 {!clicked ? (
-                                    // --- Default (Globe only) ---
                                     <motion.button
                                         key="globe-button"
                                         layoutId="webSearchButton"
@@ -148,7 +147,7 @@ export default function ChatInput() {
                                     >
                                         <Globe className="w-4 h-4" />
                                     </motion.button>
-                                ) : (~
+                                ) : (
                                     <motion.button
                                         key="expanded-button"
                                         layoutId="webSearchButton"
@@ -174,7 +173,6 @@ export default function ChatInput() {
                                                 </motion.button>
                                             </>
                                         ) : (
-                                            // When not hovered → Globe + “Web Search”
                                             <>
                                                 <Globe className="w-4 h-4" />
                                                 <span>Web Search</span>
