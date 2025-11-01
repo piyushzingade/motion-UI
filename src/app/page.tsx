@@ -1,9 +1,11 @@
-import ExitAnimation from "@/components/ExitAnimation";
+import Input from "@/components/input";
 
 export default function Home() {
   return (
     <div className="">
-      <ExitAnimation/>
+      {/* <ExitAnimation/> */}
+      <Input />
     </div>
+
   );
 }
