@@ -15,7 +15,7 @@ export default function ChatInput() {
     const textareaRef = useRef<HTMLTextAreaElement>(null)
 
     useEffect(() => setMounted(true), [])
-
+    const hasText = textareaValue.trim().length > 0
 
     const handleClick = () => {
         if (!hasText) return
@@ -25,41 +25,39 @@ export default function ChatInput() {
 
     if (!mounted) {
         return (
-            <div className="flex items-center justify-center min-h-screen w-full bg-[var(--background)] p-4">
-                <div className="w-[768px] h-[180px] bg-[var(--card)] border border-[var(--border)] rounded-2xl" />
+            <div className="flex items-center justify-center min-h-screen w-full bg-neutral-50 p-4">
+                <div className="w-[768px] h-[180px] bg-neutral-100 border border-neutral-200 rounded-2xl" />
             </div>
         )
     }
 
-    const hasText = textareaValue.trim().length > 0
-
     return (
-        <div className="flex items-center justify-center min-h-screen w-full bg-[var(--background)] p-2 text-[var(--foreground)] font-sans">
+        <div className="flex items-center justify-center min-h-screen w-full bg-neutral-50 p-2 text-neutral-800 font-sans">
             <motion.div
                 layout
-                className="bg-[var(--card)] border border-[var(--border)] w-[768px] p-3 rounded-2xl shadow-md flex flex-col gap-3 transition-all hover:shadow-lg"
-                transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                className="bg-neutral-100 border border-neutral-200 w-[768px] p-3 rounded-2xl shadow-sm flex flex-col gap-3 transition-all hover:shadow-md"
+                transition={{ duration: 0.2, ease: [0.33, 1, 0.68, 1] }}
             >
                 {/* Input Box */}
-                <div className="bg-[var(--card)] rounded-xl border border-[var(--border)] hover:border-[var(--muted)] transition-colors overflow-hidden">
+                <div className="bg-neutral-100 rounded-xl border border-neutral-200 hover:border-neutral-300 transition-colors overflow-hidden">
                     <InputGroupTextarea
                         ref={textareaRef}
                         placeholder="Enter your prompt here..."
                         value={textareaValue}
                         onChange={(e) => setTextareaValue(e.target.value)}
-                        className="w-full h-[140px] resize-none rounded-xl outline-none text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:ring-0 focus:border-none p-3 leading-tight bg-transparent"
+                        className="w-full h-[140px] resize-none rounded-xl outline-none text-neutral-800 placeholder:text-neutral-400 focus:ring-0 focus:border-none p-3 leading-tight bg-transparent"
                     />
                 </div>
 
                 {/* Footer */}
                 <div className="flex items-center justify-between">
-                    {/* Left side buttons */}
+                    {/* Left Buttons */}
                     <div className="flex items-center gap-2">
                         {/* Plus Button */}
                         <motion.button
                             whileTap={{ scale: 0.92 }}
                             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                            className="flex items-center justify-center border border-[var(--border)] bg-[var(--secondary)] cursor-pointer text-[var(--secondary-foreground)] w-[42px] h-[42px] rounded-full p-2 hover:bg-[var(--muted)] transition-all"
+                            className="flex items-center justify-center border border-neutral-200 bg-neutral-50 text-neutral-700 cursor-pointer w-[42px] h-[42px] rounded-full p-2 hover:bg-neutral-200 transition-all duration-200 ease-[cubic-bezier(0.33,1,0.68,1)]"
                         >
                             <Plus className="w-4 h-4" />
                         </motion.button>
@@ -73,9 +71,10 @@ export default function ChatInput() {
                             {!clicked ? (
                                 <button
                                     onClick={() => setClicked(true)}
-                                    className="flex items-center justify-center w-[42px] h-[42px] border border-[var(--border)] bg-[var(--secondary)] text-[var(--muted-foreground)] hover:bg-[var(--muted)] cursor-pointer rounded-full transition-all duration-300"
+                                    className="flex items-center justify-center w-[42px] h-[42px] border border-neutral-200 bg-neutral-50 text-neutral-700 cursor-pointer rounded-full
+                    transition-transform duration-200 ease-[cubic-bezier(0.33,1,0.68,1)] transform hover:scale-[1.08] active:scale-[0.96] shadow-sm hover:shadow-md"
                                 >
-                                    <Globe className="w-4 h-4" />
+                                    <Globe className="w-4 h-4 transition-opacity duration-200 ease-[cubic-bezier(0.33,1,0.68,1)]" />
                                 </button>
                             ) : (
                                 <button
@@ -83,19 +82,20 @@ export default function ChatInput() {
                                         e.stopPropagation()
                                         setClicked(false)
                                     }}
-                                    className="flex items-center justify-between h-[42px] w-[130px] border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] rounded-full transition-all duration-300 px-3 hover:bg-[var(--muted)] overflow-hidden cursor-pointer"
+                                    className="flex items-center justify-between h-[42px] border border-neutral-200 bg-neutral-100 text-neutral-700 hover:text-neutral-800 rounded-full px-3 cursor-pointer
+                    transition-all duration-200 ease-[cubic-bezier(0.33,1,0.68,1)] overflow-hidden hover:bg-neutral-200 transform origin-center shadow-sm hover:shadow-md"
+                                    style={{ width: clicked ? "130px" : "42px" }}
                                 >
                                     <div
-                                        className={`flex items-center gap-2 transition-all duration-300 ease-out ${hovered ? "-translate-x-4" : "translate-x-0"}`}
+                                        className={`flex items-center gap-2 transition-all duration-200 ease-[cubic-bezier(0.33,1,0.68,1)] ${hovered ? "-translate-x-4 opacity-70" : "translate-x-0 opacity-100"
+                                            }`}
                                     >
                                         <Globe
-                                            className={`w-4 h-4 transition-all duration-300 text-[var(-foreground)]  ${hovered
-                                                ? "opacity-0 scale-75 -translate-x-2"
-                                                : "opacity-100 scale-100 translate-x-0"
+                                            className={`w-4 h-4 transition-all duration-200 ease-[cubic-bezier(0.33,1,0.68,1)] ${hovered ? "opacity-0 scale-90 -translate-x-2" : "opacity-100 scale-100"
                                                 }`}
                                         />
                                         <span
-                                            className={`text-sm font-medium whitespace-nowrap transition-transform duration-300 ${hovered ? "-translate-x-1" : "translate-x-0"
+                                            className={`text-sm font-medium whitespace-nowrap transition-transform duration-200 ease-[cubic-bezier(0.33,1,0.68,1)] ${hovered ? "-translate-x-1" : "translate-x-0"
                                                 }`}
                                         >
                                             Web Search
@@ -104,12 +104,12 @@ export default function ChatInput() {
 
                                     {/* X Icon */}
                                     <div
-                                        className={`flex items-center justify-center p-1 rounded-full border border-[var(--border)]  transition-all duration-300 ease-out transform ${hovered
-                                            ? "opacity-100 scale-100 translate-x-[-16px] hover:bg-[var(--accent)] hover:bg-blue-200"
-                                            : "opacity-0 scale-75 translate-x-6"
+                                        className={`flex items-center justify-center p-1 rounded-full border border-neutral-200 transition-all duration-200 ease-[cubic-bezier(0.33,1,0.68,1)] transform ${hovered
+                                            ? "opacity-100 scale-100 translate-x-[-16px] bg-neutral-200 hover:bg-neutral-300 text-neutral-600"
+                                            : "opacity-0 scale-90 translate-x-6"
                                             }`}
                                     >
-                                        <X className="w-4 h-4 text-[var(-foreground)]" />
+                                        <X className="w-4 h-4" />
                                     </div>
                                 </button>
                             )}
@@ -121,9 +121,9 @@ export default function ChatInput() {
                         onClick={handleClick}
                         whileTap={{ scale: 0.9 }}
                         disabled={!hasText}
-                        className={`flex items-center justify-center border rounded-xl h-[42px] w-[42px] transition-all cursor-pointer ${hasText
-                            ? "border-[var(--border)] bg-[var(--accent)] text-[var(--accent-foreground)] hover:bg-[var(--primary)] hover:text-[var(--primary-foreground)]"
-                            : "border-[var(--border)] bg-[var(--muted)] text-[var(--muted-foreground)] cursor-not-allowed"
+                        className={`flex items-center justify-center border rounded-xl h-[42px] w-[42px] transition-all cursor-pointer duration-200 ease-[cubic-bezier(0.33,1,0.68,1)] ${hasText
+                            ? "border-neutral-300 bg-neutral-800 text-neutral-50 hover:bg-neutral-900"
+                            : "border-neutral-200 bg-neutral-200 text-neutral-500 cursor-not-allowed"
                             }`}
                     >
                         <AnimatedArrowSVG hasText={hasText} onSendClick={sendClicked} />
