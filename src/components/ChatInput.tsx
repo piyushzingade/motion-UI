@@ -59,7 +59,7 @@ export default function ChatInput() {
                         <motion.button
                             whileTap={{ scale: 0.92 }}
                             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                            className="flex items-center justify-center border border-[var(--border)] bg-[var(--secondary)] text-[var(--secondary-foreground)] w-[42px] h-[42px] rounded-full p-2 hover:bg-[var(--muted)] transition-all"
+                            className="flex items-center justify-center border border-[var(--border)] bg-[var(--secondary)] cursor-pointer text-[var(--secondary-foreground)] w-[42px] h-[42px] rounded-full p-2 hover:bg-[var(--muted)] transition-all"
                         >
                             <Plus className="w-4 h-4" />
                         </motion.button>
@@ -73,20 +73,23 @@ export default function ChatInput() {
                             {!clicked ? (
                                 <button
                                     onClick={() => setClicked(true)}
-                                    className="flex items-center justify-center w-[42px] h-[42px] border border-[var(--border)] bg-[var(--secondary)] text-[var(--muted-foreground)] hover:bg-[var(--muted)] rounded-full transition-all duration-300"
+                                    className="flex items-center justify-center w-[42px] h-[42px] border border-[var(--border)] bg-[var(--secondary)] text-[var(--muted-foreground)] hover:bg-[var(--muted)] cursor-pointer rounded-full transition-all duration-300"
                                 >
                                     <Globe className="w-4 h-4" />
                                 </button>
                             ) : (
                                 <button
-                                    onClick={(e) => e.stopPropagation()}
-                                    className="flex items-center justify-between h-[42px] w-[130px] border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] rounded-full transition-all duration-300 px-3 hover:bg-[var(--muted)] overflow-hidden"
+                                    onClick={(e) => {
+                                        e.stopPropagation()
+                                        setClicked(false)
+                                    }}
+                                    className="flex items-center justify-between h-[42px] w-[130px] border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] rounded-full transition-all duration-300 px-3 hover:bg-[var(--muted)] overflow-hidden cursor-pointer"
                                 >
                                     <div
                                         className={`flex items-center gap-2 transition-all duration-300 ease-out ${hovered ? "-translate-x-4" : "translate-x-0"}`}
                                     >
                                         <Globe
-                                            className={`w-4 h-4 transition-all duration-300 ${hovered
+                                            className={`w-4 h-4 transition-all duration-300 text-[var(-foreground)]  ${hovered
                                                 ? "opacity-0 scale-75 -translate-x-2"
                                                 : "opacity-100 scale-100 translate-x-0"
                                                 }`}
@@ -101,16 +104,12 @@ export default function ChatInput() {
 
                                     {/* X Icon */}
                                     <div
-                                        onClick={(e) => {
-                                            e.stopPropagation()
-                                            setClicked(false)
-                                        }}
-                                        className={`flex items-center justify-center p-1 rounded-full border border-[var(--border)] cursor-pointer transition-all duration-300 ease-out transform ${hovered
-                                            ? "opacity-100 scale-100 translate-x-[-16px] hover:bg-[var(--accent)]"
+                                        className={`flex items-center justify-center p-1 rounded-full border border-[var(--border)]  transition-all duration-300 ease-out transform ${hovered
+                                            ? "opacity-100 scale-100 translate-x-[-16px] hover:bg-[var(--accent)] hover:bg-blue-200"
                                             : "opacity-0 scale-75 translate-x-6"
                                             }`}
                                     >
-                                        <X className="w-4 h-4 text-[var(--muted-foreground)]" />
+                                        <X className="w-4 h-4 text-[var(-foreground)]" />
                                     </div>
                                 </button>
                             )}
@@ -122,7 +121,7 @@ export default function ChatInput() {
                         onClick={handleClick}
                         whileTap={{ scale: 0.9 }}
                         disabled={!hasText}
-                        className={`flex items-center justify-center border rounded-xl h-[42px] w-[42px] transition-all ${hasText
+                        className={`flex items-center justify-center border rounded-xl h-[42px] w-[42px] transition-all cursor-pointer ${hasText
                             ? "border-[var(--border)] bg-[var(--accent)] text-[var(--accent-foreground)] hover:bg-[var(--primary)] hover:text-[var(--primary-foreground)]"
                             : "border-[var(--border)] bg-[var(--muted)] text-[var(--muted-foreground)] cursor-not-allowed"
                             }`}
