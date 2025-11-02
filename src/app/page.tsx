@@ -1,9 +1,10 @@
 import ChatInput from "@/components/ChatInput";
+import V0Loading from "@/components/v0-loading";
 
 export default function Home() {
   return (
     <div className="">
-      <ChatInput />
+      <V0Loading />
     </div>
 
   );
