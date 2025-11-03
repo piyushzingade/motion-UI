@@ -1,134 +1,56 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { V0svg } from "./svg/v0"
 
-export function V0Loader() {
+export const V0Loader = () => {
+    const svgVariants = {
+        initial: { opacity: 0, scale: 0.9 },
+        animate: {
+            opacity: 1,
+            scale: [1, 1.03, 1],
+            transition: {
+                duration: 3,
+                ease: "easeInOut",
+                repeat: Infinity,
+            },
+        },
+    }
+
     return (
-        <div className="flex items-center justify-center min-h-screen bg-background">
-            <div className="relative w-32 h-32">
-                <motion.div
-                    className="absolute inset-0 rounded-full bg-gradient-to-br from-white/10 via-transparent to-white/5 blur-2xl"
-                    animate={{
-                        scale: [1, 1.2, 1],
-                        opacity: [0.5, 0.8, 0.5],
-                    }}
-                    transition={{
-                        duration: 3,
-                        repeat: Number.POSITIVE_INFINITY,
-                        ease: "easeInOut",
-                    }}
-                />
-
-                <motion.div
-                    className="absolute inset-0 rounded-full border border-white/20"
-                    animate={{
-                        rotate: 360,
-                    }}
-                    transition={{
-                        duration: 4,
-                        repeat: Number.POSITIVE_INFINITY,
-                        ease: "linear",
-                    }}
-                />
-
-                <motion.div
-                    className="absolute inset-2 rounded-full border border-white/10"
-                    animate={{
-                        rotate: -360,
-                        scale: [1, 1.15, 1],
-                    }}
-                    transition={{
-                        duration: 5,
-                        repeat: Number.POSITIVE_INFINITY,
-                        ease: "linear",
-                    }}
-                />
-
-                {[0, 1, 2, 3].map((i) => (
-                    <motion.div
-                        key={i}
-                        className="absolute w-1 h-1 bg-white rounded-full"
-                        animate={{
-                            x: [0, Math.cos((i * Math.PI) / 2) * 60, 0],
-                            y: [0, Math.sin((i * Math.PI) / 2) * 60, 0],
-                            opacity: [0, 1, 0],
-                        }}
-                        transition={{
-                            duration: 2,
-                            repeat: Number.POSITIVE_INFINITY,
-                            delay: i * 0.5,
-                            ease: "easeInOut",
-                        }}
-                        style={{
-                            left: "50%",
-                            top: "50%",
-                            marginLeft: "-2px",
-                            marginTop: "-2px",
-                        }}
-                    />
-                ))}
-
-                <motion.div
-                    className="absolute inset-0 flex items-center justify-center"
-                    animate={{
-                        scale: [1, 1.05, 1],
-                    }}
-                    transition={{
-                        duration: 2,
-                        repeat: Number.POSITIVE_INFINITY,
-                        ease: "easeInOut",
-                    }}
-                >
-                    <motion.div
-                        animate={{
-                            filter: [
-                                "drop-shadow(0 0 4px rgba(255,255,255,0))",
-                                "drop-shadow(0 0 12px rgba(255,255,255,0.5))",
-                                "drop-shadow(0 0 4px rgba(255,255,255,0))",
-                            ],
-                        }}
-                        transition={{
-                            duration: 2,
-                            repeat: Number.POSITIVE_INFINITY,
-                            ease: "easeInOut",
-                        }}
-                    >
-                        <V0svg />
-                    </motion.div>
-                </motion.div>
-
-                <motion.div
-                    className="absolute inset-0 rounded-full"
-                    animate={{
-                        backgroundImage: [
-                            "linear-gradient(45deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 100%)",
-                            "linear-gradient(45deg, rgba(255,255,255,0) 30%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 70%)",
-                            "linear-gradient(45deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 100%)",
-                        ],
-                        backgroundSize: ["200% 200%", "200% 200%", "200% 200%"],
-                        backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
-                    }}
-                    transition={{
-                        duration: 3,
-                        repeat: Number.POSITIVE_INFINITY,
-                        ease: "easeInOut",
-                    }}
-                />
-            </div>
-
+        <div className="flex items-center justify-center h-screen bg-neutral-950">
             <motion.div
-                className="absolute bottom-20 text-center"
-                animate={{
-                    opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                    duration: 2,
-                    repeat: Number.POSITIVE_INFINITY,
-                    ease: "easeInOut",
-                }}
+                className="relative flex items-center justify-center"
+                variants={svgVariants}
+                initial="initial"
+                animate="animate"
             >
-                <p className="text-sm font-medium text-foreground/70 tracking-wider">Generating magic...</p>
+                <motion.svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 147 70"
+                    fill="none"
+                    className="w-20 h-20 text-white"
+                >
+                    {[ // render both paths together
+                        "M56 50.2031V14H70V60.1562C70 65.5928 65.5928 70 60.1562 70C57.5605 70 54.9982 68.9992 53.1562 67.1573L0 14H19.7969L56 50.2031Z",
+                        "M147 56H133V23.9531L100.953 56H133V70H96.6875C85.8144 70 77 61.1856 77 50.3125V14H91V46.1562L123.156 14H91V0H127.312C138.186 0 147 8.81439 147 19.6875V56Z"
+                    ].map((d, i) => (
+                        <motion.path
+                            key={i}
+                            d={d}
+                            stroke="white"
+                            strokeWidth="4"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            initial={{ pathLength: 0 }}
+                            animate={{ pathLength: [0, 1, 0] }}
+                            transition={{
+                                duration: 3,
+                                ease: "easeInOut",
+                                repeat: Infinity,
+                            }}
+                        />
+                    ))}
+                </motion.svg>
             </motion.div>
         </div>
     )
