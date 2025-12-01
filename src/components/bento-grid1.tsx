@@ -39,7 +39,7 @@ export function BentoGrid1() {
                 </div>
 
                 {/* Card 2 */}
-                <div className="group col-span-1 row-span-1 border border-orange-400 rounded-2xl bg-gradient-to-br from-white to-orange-50/50 overflow-hidden relative transition-all duration-300 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1),inset_0_-2px_4px_rgba(255,255,255,0.1)] hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/10 p-5 cursor-pointer">
+                <div className="group col-span-1 row-span-1 border border-orange-400 rounded-2xl bg-gradient-to-br from-white to-orange-50/50 overflow-hidden relative transition-all duration-300 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/10 p-5 cursor-pointer">
                     <div className="absolute top-3 right-3 opacity-10 group-hover:opacity-20 transition-opacity text-orange-600">
                         <Award size={48} />
                     </div>
@@ -58,7 +58,7 @@ export function BentoGrid1() {
                 </div>
 
                 {/* Card 3 */}
-                <div className="group col-span-1 row-span-1 border border-orange-400 rounded-2xl bg-white overflow-hidden relative transition-all duration-300 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1),inset_0_-2px_4px_rgba(255,255,255,0.1)] hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/10 p-5 cursor-pointer">
+                <div className="group col-span-1 row-span-1 border border-orange-400 rounded-2xl bg-white overflow-hidden relative transition-all duration-300 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/10 p-5 cursor-pointer">
                     <div className="h-full flex flex-col relative z-20">
                         <div className="flex gap-2 mb-auto">
                             <span className="bg-green-100 text-green-800 px-2 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase border border-green-200">GF</span>
@@ -151,7 +151,7 @@ export function BentoGrid1() {
                             </div>
                             <p className="text-orange-100 text-xs font-medium tracking-wide mb-3 opacity-90">Fresh Batch #402</p>
 
-                            <div className="flex items-center gap-2 text-[10px] text-white bg-black/20 w-full px-2 py-1.5 rounded-lg border border-white/10">
+                            <div className="flex items-center gap-2 text-[10px] text-white bg-black/20 w-full px-2 py-1.5 rounded-lg border border-orange-600/50">
                                 <Truck className="w-3 h-3" />
                                 <span className="font-semibold">Free US Shipping {"> "}$30</span>
                             </div>
