@@ -10,7 +10,7 @@ export function BentoGrid1() {
             <div className="row-span-2 gap-4 grid grid-cols-4">
 
                 {/* Card 1 */}
-                <div className="group col-span-2 row-span-3 rounded-2xl bg-orange-50 overflow-hidden relative transition-all duration-500 hover:shadow-[0_20px_40px_-10px_rgba(234,88,12,0.2)] cursor-pointer">
+                <div className="group col-span-2 row-span-3 rounded-2xl bg-orange-50 overflow-hidden relative transition-all duration-500 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1),inset_0_-2px_4px_rgba(255,255,255,0.1)] hover:shadow-[0_20px_40px_-10px_rgba(234,88,12,0.2)] cursor-pointer">
                     <Image
                         src="https://picsum.photos/id/425/600/800"
                         alt="Granola Bowl"
@@ -35,10 +35,11 @@ export function BentoGrid1() {
                             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                         </div>
                     </div>
+                    <div className="absolute inset-0 bg-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
 
                 {/* Card 2 */}
-                <div className="group col-span-1 row-span-1 border border-orange-400 rounded-2xl bg-gradient-to-br from-white to-orange-50/50 overflow-hidden relative transition-all duration-300 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/10 p-5 cursor-pointer">
+                <div className="group col-span-1 row-span-1 border border-orange-400 rounded-2xl bg-gradient-to-br from-white to-orange-50/50 overflow-hidden relative transition-all duration-300 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1),inset_0_-2px_4px_rgba(255,255,255,0.1)] hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/10 p-5 cursor-pointer">
                     <div className="absolute top-3 right-3 opacity-10 group-hover:opacity-20 transition-opacity text-orange-600">
                         <Award size={48} />
                     </div>
@@ -53,12 +54,12 @@ export function BentoGrid1() {
                             <p className="text-sm text-gray-600 leading-relaxed">Plant-based energy boost packed with nutrients to keep you energized.</p>
                         </div>
                     </div>
+                    <div className="absolute inset-0 bg-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
 
                 {/* Card 3 */}
-                <div className="group col-span-1 row-span-1 border border-orange-400 rounded-2xl bg-white overflow-hidden relative transition-all duration-300 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/10 p-5 cursor-pointer">
+                <div className="group col-span-1 row-span-1 border border-orange-400 rounded-2xl bg-white overflow-hidden relative transition-all duration-300 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1),inset_0_-2px_4px_rgba(255,255,255,0.1)] hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/10 p-5 cursor-pointer">
                     <div className="h-full flex flex-col relative z-20">
-                        {/* Badges */}
                         <div className="flex gap-2 mb-auto">
                             <span className="bg-green-100 text-green-800 px-2 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase border border-green-200">GF</span>
                             <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase border border-orange-200">Vegan</span>
@@ -71,16 +72,14 @@ export function BentoGrid1() {
                             </p>
                         </div>
                     </div>
-                    {/* Decorative Leaf - Positioned to not overlap text */}
+                    <div className="absolute inset-0 bg-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <Leaf className="absolute -bottom-4 -right-4 text-orange-50 w-28 h-28 -rotate-12 group-hover:text-orange-100/80 transition-colors pointer-events-none z-10" />
                 </div>
 
                 {/* Card 4 */}
-                <div className="group relative col-span-2 row-span-2 border border-orange-400 rounded-2xl bg-orange-50 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-orange-900/5 cursor-pointer">
+                <div className="group relative col-span-2 row-span-2 border border-orange-400 rounded-2xl bg-orange-50 overflow-hidden transition-all duration-300 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1),inset_0_-2px_4px_rgba(255,255,255,0.1)] hover:shadow-xl hover:shadow-orange-900/5 cursor-pointer">
 
-                    {/* Right Side Image Container - Absolute Positioning */}
                     <div className="absolute inset-y-0 right-0 w-[55%] h-full overflow-hidden">
-                        {/* Gradient Overlay for blending */}
                         <div className="absolute inset-0 z-10 bg-gradient-to-r from-orange-50 via-orange-50/20 to-transparent"></div>
                         <img
                             src="https://images.unsplash.com/photo-1504544750208-dc0358e63f7f?q=80&w=800&auto=format&fit=crop"
@@ -89,7 +88,6 @@ export function BentoGrid1() {
                         />
                     </div>
 
-                    {/* Left Side Content - Relative & Z-indexed above image */}
                     <div className="relative z-20 w-[55%] h-full p-8 flex flex-col justify-center">
                         <div className="space-y-5">
                             <div className="flex items-center gap-2 text-orange-600">
@@ -161,7 +159,7 @@ export function BentoGrid1() {
                     </div>
                 </div >
 
-                {/* Card 6: Limited Time Offer */}
+                {/* Card 6*/}
                 < div className="group col-span-3 border border-orange-400 rounded-2xl bg-white overflow-hidden relative transition-all duration-300 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/10 cursor-pointer" >
                     <div className="absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-orange-50 via-orange-50/50 to-transparent opacity-50"></div>
                     <div className="p-8 h-full flex items-center justify-between relative z-10">
