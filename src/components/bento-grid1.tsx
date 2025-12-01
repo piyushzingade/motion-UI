@@ -159,31 +159,45 @@ export function BentoGrid1() {
                     </div>
                 </div >
 
-                {/* Card 6*/}
-                < div className="group col-span-3 border border-orange-400 rounded-2xl bg-white overflow-hidden relative transition-all duration-300 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/10 cursor-pointer" >
-                    <div className="absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-orange-50 via-orange-50/50 to-transparent opacity-50"></div>
-                    <div className="p-8 h-full flex items-center justify-between relative z-10">
+                {/* Card 6 */}
+                <div className="group col-span-3 border border-orange-400 rounded-2xl bg-white overflow-hidden relative transition-all duration-300 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/10 cursor-pointer">
+                    <div className="absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-orange-50 via-orange-50/50 to-transparent opacity-50 z-0"></div>
+                    <div className="absolute inset-0 bg-transparent group-hover:bg-orange-500/10 transition-colors duration-300 z-10 pointer-events-none"></div>
+
+                    <div className="relative z-20 p-8 h-full flex items-center justify-between">
                         <div className="space-y-3 max-w-lg">
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-xs font-bold uppercase tracking-wider shadow-sm border border-orange-200">
                                 <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
                                 Weekly Special
                             </div>
-                            <h4 className="text-2xl font-bold text-gray-900 tracking-tight">Sustainably sourced, baked fresh.</h4>
+
+                            <h4 className="text-2xl font-bold text-gray-900 tracking-tight">
+                                Sustainably sourced, baked fresh.
+                            </h4>
+
                             <p className="text-gray-500 text-sm font-medium leading-relaxed max-w-md">
-                                Experience the crunch of ethically sourced ingredients baked to perfection in small batches. Order now for weekend delivery.
+                                Experience the crunch of ethically sourced ingredients baked to perfection
+                                in small batches. Order now for weekend delivery.
                             </p>
                         </div>
 
                         <div className="flex flex-col items-end pl-8 border-l border-orange-100 h-2/3 justify-center">
-                            <span className="text-sm text-gray-400 font-medium line-through mb-1 decoration-orange-300/50">$8.99</span>
+                            <span className="text-sm text-gray-400 font-medium line-through mb-1 decoration-orange-300/50">
+                                $8.99
+                            </span>
+
                             <div className="flex items-baseline gap-1 text-orange-600">
                                 <span className="text-2xl font-bold">$</span>
                                 <span className="text-6xl font-black tracking-tighter drop-shadow-sm">4.99</span>
                             </div>
-                            <span className="text-xs text-orange-500 font-bold uppercase tracking-wide mt-1 bg-orange-50 px-2 py-0.5 rounded-md">Per 12oz Bag</span>
+
+                            <span className="text-xs text-orange-500 font-bold uppercase tracking-wide mt-1 bg-orange-50 px-2 py-0.5 rounded-md">
+                                Per 12oz Bag
+                            </span>
                         </div>
                     </div>
-                </div >
+                </div>
+
             </div >
         </div >
     );
