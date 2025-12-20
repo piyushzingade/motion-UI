@@ -178,3 +178,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+.clip-path-test {
+  clip-path: path("M  10,20  Z");
+}

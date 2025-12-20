@@ -1,14 +1,10 @@
-
-
 import { Component2 } from "@/components/component-2";
+import { Component3 } from "@/components/component-3";
 
-
-
-export default function Page() {
+export default function Home() {
   return (
-    <div className="min-h-screen w-full flex justify-center items-center bg-[#171716]">
+    <div className="flex justify-center items-center min-h-screen bg-neutral-900">
       <Component2 />
     </div>
-
   );
-} 
+}

@@ -1,3 +1,4 @@
+
 "use client";
 import { useEffect, useRef, useState } from "react";
 
@@ -37,17 +38,21 @@ export const Component2 = () => {
         <div>
             <div
                 className="
-          relative flex items-center bg-neutral-950/70 p-1.5 rounded-2xl  shadow-[inset_0_1.5px_0_rgba(12,12,12,0.65),inset_0_-1.5px_0_rgba(255,255,255,0.15)] blur-0 "
+          relative flex items-center bg-neutral-950/70 p-1.5 rounded-2xl shadow-[0_5px_10px_0px_#000_inset,0_-1px_0_0_#111111_inset,0_1px_0_0_#323232] blur-0 "
             >
                 {/* Animated Indicator */}
                 <div
-                    className="  absolute h-[calc(100%-12px)]  bg-neutral-800 rounded-xl shadow-[inset_0_1.5px_0_rgba(255,255,255,0.05),inset_0_-1.5px_0_rgba(13,13,13,0.95)]   transition-all duration-300  ease-[cubic-bezier(0.4,0,0.2,1)]
-  "
+                    className="px-px bg-gradient-to-b from-[#333333] via-[#222220] to-transparent absolute h-[calc(100%-12px)] rounded-xl transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
                     style={{
                         left: indicatorStyle.left,
                         width: indicatorStyle.width,
                     }}
-                />
+                >
+
+                    <div
+                        className="w-full h-full bg-neutral-800 rounded-xl shadow-[inset_0_1.5px_0_rgba(255,255,255,0.05),inset_0_-1.5px_0_rgba(22,22,22,0.95)] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                    />
+                </div>
 
                 {tabs.map((tab, index) => (
                     <button
