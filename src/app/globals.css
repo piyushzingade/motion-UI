@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'TypoDigit';
+  src: url('/digital.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
