@@ -1,0 +1,19 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    svg {
+        width: 500px;
+        filter: url(#filter);
+
+        path {
+            display: none;
+        }
+
+        circle {
+            fill: black;
+        }
+    }
+}
