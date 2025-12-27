@@ -4,6 +4,7 @@ import { Component3 } from "@/components/component-3";
 import Component4 from "@/components/component-4";
 import { Component5 } from "@/components/component-5";
 import Component6 from "@/components/component-6";
+import Component7 from "@/components/component-7";
 
 export default function Home() {
   return (
@@ -12,7 +13,7 @@ export default function Home() {
       {/* <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-200/40 rounded-full blur-[120px] -z-10" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-200/40 rounded-full blur-[120px] -z-10" /> */}
 
-      <Component6 />
+      <Component7 />
     </div>
   );
 }

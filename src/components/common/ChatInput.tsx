@@ -4,7 +4,7 @@ import { Globe, Plus, X } from "lucide-react"
 import { InputGroupTextarea } from "@/components/ui/input-group"
 import { useEffect, useState, useRef } from "react"
 import { motion } from "framer-motion"
-import { AnimatedArrowSVG } from "./svg/RightArrow"
+import { AnimatedArrowSVG } from "../svg/RightArrow"
 
 export default function ChatInput() {
     const [clicked, setClicked] = useState(false)

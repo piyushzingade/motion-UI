@@ -1,4 +1,4 @@
-import { V0svg } from "./svg/v0";
+import { V0svg } from "../svg/v0";
 
 export default function V0Loading() {
     return (
