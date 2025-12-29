@@ -240,3 +240,21 @@
     0px 1px 5px 0px rgba(0, 0, 0, 0.1),
     0px 6px 16px 0px rgba(0, 0, 0, 0.08);
 }
+
+
+.liquid-glass-2 {
+  background-color: rgba(187, 187, 188, 0.12);
+  backdrop-filter: blur(8px) saturate(150%);
+  -webkit-backdrop-filter: blur(8px) saturate(150%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 1.8px 3px 0px -2px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 0px -2px rgba(255, 255, 255, 0.5),
+    inset -3px -8px 1px -6px rgba(255, 255, 255, 0.5),
+    inset -0.3px -1px 4px 0px rgba(0, 0, 0, 0.1),
+    inset -1.5px 2.5px 0px -2px rgba(0, 0, 0, 0.1),
+    inset 0px 3px 4px -2px rgba(0, 0, 0, 0.1),
+    inset 2px -6.5px 1px -4px rgba(0, 0, 0, 0.1),
+    0px 1px 5px 0px rgba(0, 0, 0, 0.1),
+    0px 6px 16px 0px rgba(0, 0, 0, 0.08);
+}

@@ -81,6 +81,12 @@ interface IgniteAppProps {
     initialScreen?: AppScreen;
 }
 
+
+const TABS = [
+    { key: AppScreen.Discover, icon: Flame },
+    { key: AppScreen.Matches, icon: MessageCircle },
+    { key: AppScreen.Profile, icon: User },
+];
 export default function IgniteApp({ initialScreen = AppScreen.Splash }: IgniteAppProps) {
     const [screen, setScreen] = useState<AppScreen>(initialScreen);
     const [prevScreen, setPrevScreen] = useState<AppScreen>(initialScreen);
@@ -122,7 +128,7 @@ export default function IgniteApp({ initialScreen = AppScreen.Splash }: IgniteAp
 
     const liquidGlassClass = "liquid-glass";
 
-    const navBarClass = "absolute bottom-6 left-1/2 z-50 w-[80%] flex justify-around items-center py-3 rounded-full liquid-glass";
+    const navBarClass = "absolute bottom-6 left-1/2 -translate-x-1/2 z-50 w-[85%] flex rounded-full liquid-glass overflow-hidden px-2 py-2";
 
     const renderScreen = () => {
         switch (screen) {
@@ -179,7 +185,7 @@ export default function IgniteApp({ initialScreen = AppScreen.Splash }: IgniteAp
                             transition={{ delay: 0.6 }}
                             whileTap={{ scale: 0.96 }}
                             onClick={() => handleScreenChange(AppScreen.Discover)}
-                            className="absolute bottom-12 left-8 right-8 bg-white/20 backdrop-blur-md border border-white/40 text-white py-5 rounded-full font-bold uppercase tracking-widest text-xs overflow-hidden shadow-2xl"
+                            className="absolute liquid-glass-2 bottom-12 left-8 right-8 bg-white/20 backdrop-blur-md border border-white/40 text-white py-5 rounded-full font-bold uppercase tracking-widest text-xs overflow-hidden shadow-2xl"
                         >
                             <span className="relative z-10">Start Swiping</span>
                             <motion.div
@@ -195,25 +201,19 @@ export default function IgniteApp({ initialScreen = AppScreen.Splash }: IgniteAp
                 const currentProfile = MOCK_PROFILES[currentIndex];
                 return (
                     <div className="w-full h-full bg-gradient-to-b from-gray-50 to-white flex flex-col relative">
-                        <div className="flex-1 pt-14 px-5 pb-28 flex flex-col">
-                            <div className="flex justify-between items-center mb-5 px-1">
-                                <div className="flex items-center gap-2">
-                                    <div className="w-9 h-9 rounded-full bg-[#ff4165] flex items-center justify-center shadow-lg shadow-[#ff4165]/30">
-                                        <Flame size={18} color="white" fill="white" />
-                                    </div>
-                                    <span className="font-bold text-gray-900 tracking-tight text-lg">Discover</span>
-                                </div>
-                                <div className="flex gap-3">
-                                    <button className={`w-10 h-10 rounded-full flex items-center justify-center ${liquidGlassClass}`}>
-                                        <Compass size={20} className="text-gray-600" />
-                                    </button>
-                                    <button className={`w-10 h-10 rounded-full flex items-center justify-center ${liquidGlassClass}`}>
-                                        <Settings size={20} className="text-gray-600" />
-                                    </button>
-                                </div>
-                            </div>
+                        <div className="absolute top-14 left-5 right-5 flex justify-between z-10">
+                            <button className={`w-11 h-11 rounded-full flex items-center justify-center ${liquidGlassClass}`}>
+                                <Compass size={20} className="text-gray-700" />
+                            </button>
+                            <button className={`w-11 h-11 rounded-full flex items-center justify-center ${liquidGlassClass}`}>
+                                <Settings size={20} className="text-gray-700" />
+                            </button>
+                        </div>
 
-                            <div className="relative flex-1 w-full flex items-center justify-center mb-5 perspective-1000">
+                        <div className="flex-1 pt-14 px-5 pb-20 flex flex-col">
+                            <div className="h-14" /> {/* Spacer for the absolute header */}
+
+                            <div className="relative flex-1 w-full flex items-center justify-center mb-2 perspective-1000">
                                 <AnimatePresence mode="popLayout">
                                     <motion.div
                                         key={currentProfile.id}
@@ -223,84 +223,93 @@ export default function IgniteApp({ initialScreen = AppScreen.Splash }: IgniteAp
                                         onDragEnd={handleDragEnd}
                                         className="absolute inset-0 cursor-grab active:cursor-grabbing"
                                     >
-                                        <div className="relative w-full h-full rounded-[32px] overflow-hidden bg-white shadow-2xl">
-                                            <img src={currentProfile.image} alt={currentProfile.name} className="w-full h-full object-cover" />
+                                        <div className="relative w-full h-full rounded-[48px] p-3 bg-white shadow-2xl flex flex-col">
+                                            {/* Image & Badge Container */}
+                                            <div className="relative w-full">
+                                                <div className="relative w-full aspect-[4/5] rounded-[36px] overflow-hidden bg-gray-100 select-none">
+                                                    <img
+                                                        src={currentProfile.image}
+                                                        alt={currentProfile.name}
+                                                        className="w-full h-full object-cover pointer-events-none"
+                                                        draggable="false"
+                                                    />
 
-                                            <motion.div
-                                                style={{ opacity: likeOpacity }}
-                                                className="absolute top-12 left-8 z-20 border-[5px] border-emerald-500 rounded-2xl px-5 py-3 rotate-[-20deg] bg-white/20 backdrop-blur-sm"
-                                            >
-                                                <span className="text-emerald-500 font-black text-4xl uppercase tracking-tighter">LIKE</span>
-                                            </motion.div>
+                                                    {/* Swipe Overlays */}
+                                                    <motion.div
+                                                        style={{ opacity: likeOpacity }}
+                                                        className="absolute top-8 left-6 z-20 border-[4px] border-emerald-500 rounded-xl px-4 py-2 rotate-[-15deg] bg-white/20 backdrop-blur-sm"
+                                                    >
+                                                        <span className="text-emerald-500 font-black text-3xl uppercase tracking-tighter">Like</span>
+                                                    </motion.div>
 
-                                            <motion.div
-                                                style={{ opacity: nopeOpacity }}
-                                                className="absolute top-12 right-8 z-20 border-[5px] border-rose-500 rounded-2xl px-5 py-3 rotate-[20deg] bg-white/20 backdrop-blur-sm"
-                                            >
-                                                <span className="text-rose-500 font-black text-4xl uppercase tracking-tighter">NOPE</span>
-                                            </motion.div>
-
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-
-                                            <div className="absolute bottom-0 left-0 right-0 p-6 space-y-2">
-                                                <div className="flex items-end gap-2">
-                                                    <h2 className="text-4xl font-bold text-white tracking-tight">{currentProfile.name}, {currentProfile.age}</h2>
-                                                    <div className="w-3 h-3 rounded-full bg-emerald-400 mb-2.5 animate-pulse shadow-lg shadow-emerald-400/50" />
+                                                    <motion.div
+                                                        style={{ opacity: nopeOpacity }}
+                                                        className="absolute top-8 right-6 z-20 border-[4px] border-rose-500 rounded-xl px-4 py-2 rotate-[15deg] bg-white/20 backdrop-blur-sm"
+                                                    >
+                                                        <span className="text-rose-500 font-black text-3xl uppercase tracking-tighter">Pass</span>
+                                                    </motion.div>
                                                 </div>
 
-                                                <div className="flex items-center gap-2 text-white/80 text-sm">
-                                                    <Compass size={14} />
-                                                    <span>{currentProfile.distance}</span>
+                                                {/* Badge - Positioned relative to the image container, outside overflow-hidden */}
+                                                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 z-50">
+                                                    <div className="bg-[#ff4165] px-6 py-2 rounded-full shadow-lg shadow-[#ff4165]/30 flex items-center justify-center">
+                                                        <span className="text-[10px] font-black text-white uppercase tracking-wider text-center">
+                                                            {currentProfile.matchScore}% Similarities
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* Content Section */}
+                                            <div className="flex-1 px-4 pt-7 pb-1 flex flex-col items-center text-center overflow-hidden">
+                                                <div className="mb-1.5 flex-shrink-0">
+                                                    <h2 className="text-3xl font-black text-gray-900 tracking-tight">{currentProfile.name}, {currentProfile.age}</h2>
                                                 </div>
 
-                                                <p className="text-white/90 text-base leading-relaxed pt-1">
-                                                    {currentProfile.bio}
-                                                </p>
+                                                <div className="flex-1 flex flex-col justify-center min-h-0">
+                                                    <p className="text-gray-400 text-xs leading-relaxed max-w-full">
+                                                        {currentProfile.bio}
+                                                    </p>
+                                                </div>
 
-                                                <div className="flex items-center gap-3 pt-3">
-                                                    <div className={`px-4 py-2 rounded-full ${liquidGlassClass}`}>
-                                                        <span className="text-xs font-black text-[#ff4165] uppercase">Top Pick</span>
+                                                {/* Action Buttons Inside Card */}
+                                                <div className="mt-auto w-full flex items-center justify-between px-2 pb-2">
+                                                    <motion.button
+                                                        whileTap={{ scale: 0.9 }}
+                                                        className={`w-10 h-10 rounded-full flex items-center justify-center hover:scale-105 transition-all ${liquidGlassClass}`}
+                                                    >
+                                                        <Star size={18} className="text-amber-400" fill="currentColor" />
+                                                    </motion.button>
+
+                                                    <div className="flex items-center gap-5">
+                                                        <motion.button
+                                                            whileTap={{ scale: 0.9 }}
+                                                            className={`w-16 h-16 rounded-full flex items-center justify-center hover:scale-105 bg-white shadow-[0_10px_25px_rgba(0,0,0,0.08)] border border-gray-100 text-gray-400 hover:text-gray-600 transition-colors`}
+                                                            onClick={() => setCurrentIndex((prev) => (prev + 1) % MOCK_PROFILES.length)}
+                                                        >
+                                                            <X size={32} strokeWidth={2.5} />
+                                                        </motion.button>
+
+                                                        <motion.button
+                                                            whileTap={{ scale: 0.9 }}
+                                                            className={`w-16 h-16 rounded-full flex items-center justify-center hover:scale-105 transition-all bg-[#ff4165] shadow-xl shadow-[#ff4165]/40 text-white`}
+                                                            onClick={() => setCurrentIndex((prev) => (prev + 1) % MOCK_PROFILES.length)}
+                                                        >
+                                                            <Heart size={32} fill="currentColor" />
+                                                        </motion.button>
                                                     </div>
-                                                    <div className={`px-4 py-2 rounded-full ${liquidGlassClass}`}>
-                                                        <span className="text-xs font-black text-white uppercase">{currentProfile.matchScore}% Match</span>
-                                                    </div>
+
+                                                    <motion.button
+                                                        whileTap={{ scale: 0.9 }}
+                                                        className={`w-10 h-10 rounded-full flex items-center justify-center hover:scale-105 transition-all ${liquidGlassClass}`}
+                                                    >
+                                                        <Zap size={18} className="text-[#ff4165]" fill="currentColor" />
+                                                    </motion.button>
                                                 </div>
                                             </div>
                                         </div>
                                     </motion.div>
                                 </AnimatePresence>
-                            </div>
-
-                            <div className="flex justify-center items-center gap-5">
-                                <motion.button
-                                    whileTap={{ scale: 0.9 }}
-                                    className={`w-16 h-16 rounded-full flex items-center justify-center ${liquidGlassClass}`}
-                                    onClick={() => setCurrentIndex((prev) => (prev + 1) % MOCK_PROFILES.length)}
-                                >
-                                    <X size={32} className="text-rose-500" strokeWidth={2.5} />
-                                </motion.button>
-
-                                <motion.button
-                                    whileTap={{ scale: 0.9 }}
-                                    className={`w-14 h-14 rounded-full flex items-center justify-center ${liquidGlassClass}`}
-                                >
-                                    <Star size={24} className="text-amber-400" fill="currentColor" />
-                                </motion.button>
-
-                                <motion.button
-                                    whileTap={{ scale: 0.9 }}
-                                    className={`w-16 h-16 rounded-full flex items-center justify-center ${liquidGlassClass}`}
-                                    onClick={() => setCurrentIndex((prev) => (prev + 1) % MOCK_PROFILES.length)}
-                                >
-                                    <Heart size={32} className="text-emerald-500" fill="currentColor" />
-                                </motion.button>
-
-                                <motion.button
-                                    whileTap={{ scale: 0.9 }}
-                                    className={`w-12 h-12 rounded-full flex items-center justify-center ${liquidGlassClass}`}
-                                >
-                                    <Info size={20} className="text-blue-500" />
-                                </motion.button>
                             </div>
                         </div>
                     </div>
@@ -337,8 +346,11 @@ export default function IgniteApp({ initialScreen = AppScreen.Splash }: IgniteAp
                             </div>
                         </div>
 
+                        <div className="shrink-0 px-5 mb-4">
+                            <h3 className="text-gray-500 text-xs font-black uppercase tracking-wider">Messages</h3>
+                        </div>
+
                         <div className="flex-1 overflow-y-auto scrollbar-hide px-5 pb-28">
-                            <h3 className="text-gray-500 text-xs font-black uppercase tracking-wider mb-4">Messages</h3>
                             <div className="pr-1">
                                 {[...MOCK_PROFILES, ...MOCK_PROFILES].map((p, i) => (
                                     <motion.div
@@ -477,44 +489,44 @@ export default function IgniteApp({ initialScreen = AppScreen.Splash }: IgniteAp
                     transition={{ delay: 0.2, type: "spring", stiffness: 200, damping: 20 }}
                     className={navBarClass}
                 >
-                    <motion.button
-                        whileTap={{ scale: 0.9 }}
-                        onClick={() => handleScreenChange(AppScreen.Discover)}
-                        className="p-2"
-                    >
-                        <Flame
-                            size={26}
-                            className={screen === AppScreen.Discover ? "text-[#ff4165]" : "text-gray-400"}
-                            fill={screen === AppScreen.Discover ? "currentColor" : "none"}
-                            strokeWidth={2}
+                    <div className="relative w-full flex items-center">
+                        {/* Sliding Indicator */}
+                        <motion.div
+                            className="absolute liquid-glass-2 top-0 bottom-0 bg-white/40 backdrop-blur-md rounded-full shadow-sm border border-white/20"
+                            animate={{
+                                x: `${TABS.findIndex(t => t.key === screen) * 100}%`,
+                            }}
+                            style={{
+                                width: `${100 / TABS.length}%`,
+                            }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 300,
+                                damping: 30,
+                                delay: 0.12
+                            }}
                         />
-                    </motion.button>
 
-                    <motion.button
-                        whileTap={{ scale: 0.9 }}
-                        onClick={() => handleScreenChange(AppScreen.Matches)}
-                        className="p-2"
-                    >
-                        <MessageCircle
-                            size={26}
-                            className={screen === AppScreen.Matches ? "text-[#ff4165]" : "text-gray-400"}
-                            fill={screen === AppScreen.Matches ? "currentColor" : "none"}
-                            strokeWidth={2}
-                        />
-                    </motion.button>
-
-                    <motion.button
-                        whileTap={{ scale: 0.9 }}
-                        onClick={() => handleScreenChange(AppScreen.Profile)}
-                        className="p-2"
-                    >
-                        <User
-                            size={26}
-                            className={screen === AppScreen.Profile ? "text-[#ff4165]" : "text-gray-400"}
-                            fill={screen === AppScreen.Profile ? "currentColor" : "none"}
-                            strokeWidth={2}
-                        />
-                    </motion.button>
+                        {TABS.map((tab) => {
+                            const Icon = tab.icon;
+                            const isActive = screen === tab.key;
+                            return (
+                                <motion.button
+                                    key={tab.key}
+                                    whileTap={{ scale: 0.95 }}
+                                    onClick={() => handleScreenChange(tab.key)}
+                                    className="relative flex-1 py-4 flex items-center justify-center z-10"
+                                >
+                                    <Icon
+                                        size={24}
+                                        className={`transition-colors hover:scale-105 duration-300 ${isActive ? "text-[#ff4165]" : "text-gray-400"}`}
+                                        fill={isActive ? "currentColor" : "none"}
+                                        strokeWidth={2}
+                                    />
+                                </motion.button>
+                            );
+                        })}
+                    </div>
                 </motion.div>
             )}
         </div>
