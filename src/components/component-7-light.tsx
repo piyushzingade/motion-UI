@@ -1,8 +1,8 @@
 import { AppScreen } from "@/lib/types"
-import { IgniteApp } from "./common/App"
+import IgniteApp from "./common/IgniteAppLight"
 
 
-export default function Component7() {
+export default function Component7Light() {
     return (
         <div className="min-h-screen w-full bg-[#f5f5f7] flex flex-col items-center justify-center p-4 md:p-8 overflow-hidden relative">
             {/* Background Ambience */}
@@ -18,8 +18,8 @@ const Iphonelayout = () => {
 
         <div className="rounded-[65px] border-px bg-gray-100 border-gray-100 p-1 shadow-[inset_2px_0_3px_rgba(0,0,0,0.7),inset_-2px_0_3px_rgba(0,0,0,0.7),inset_0_-2px_3px_rgba(0,0,0,0.7),inset_0_2px_4px_rgba(0,0,0,0.05)]">
             <div className="relative w-[390px] border-8 border-black/90 h-[800px] bg-white rounded-[60px] overflow-hidden">
-                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-red-400/80 blur-[120px] rounded-full pointer-events-none mix-blend-multiply" />
-                <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-red-500/80 blur-[120px] rounded-full pointer-events-none mix-blend-multiply" />
+                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-red-400/20 blur-[120px] rounded-full pointer-events-none mix-blend-multiply" />
+                <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-red-500/20 blur-[120px] rounded-full pointer-events-none mix-blend-multiply" />
                 <StatusBar />
                 <div className="w-full h-full">
                     <IgniteApp initialScreen={AppScreen.Splash} />

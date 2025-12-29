@@ -5,6 +5,7 @@ import Component4 from "@/components/component-4";
 import { Component5 } from "@/components/component-5";
 import Component6 from "@/components/component-6";
 import Component7 from "@/components/component-7";
+import Component7Light from "@/components/component-7-light";
 
 export default function Home() {
   return (
@@ -13,8 +14,7 @@ export default function Home() {
       {/* <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-200/40 rounded-full blur-[120px] -z-10" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-200/40 rounded-full blur-[120px] -z-10" /> */}
 
-      <Component7 />
+      <Component7Light />
     </div>
   );
 }
-//  bg-gradient-to-b from-[#ee1902] to-[#ff2d02]
