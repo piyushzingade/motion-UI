@@ -88,7 +88,7 @@ const SCREEN_ORDER = [AppScreen.Discover, AppScreen.Matches, AppScreen.Profile];
 
 const SplashScreen = React.memo(({ onStart }: { onStart: () => void }) => (
     <div className="relative w-full h-full bg-[#ff4165] flex flex-col items-center justify-center p-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#ff4165] via-[#ff5577] to-[#ff6688]" />
+        <div className="absolute inset-0 bg-[#ff4165]" />
 
         <motion.div
             initial={{ scale: 0.8, opacity: 0, y: 20 }}
@@ -340,7 +340,7 @@ const MatchesScreen = React.memo(({ liquidGlassClass }: { liquidGlassClass: stri
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: i * 0.05, type: "spring" }}
                         key={`${p.id}-${i}`}
-                        className="relative w-24 h-32 flex-shrink-0 rounded-3xl overflow-hidden shadow-lg group cursor-pointer"
+                        className="relative w-24 h-32 flex-shrink-0 rounded-xl overflow-hidden shadow-lg group cursor-pointer"
                     >
                         <img src={p.image} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
@@ -365,7 +365,7 @@ const MatchesScreen = React.memo(({ liquidGlassClass }: { liquidGlassClass: stri
             </div>
         </div>
 
-        <div className="flex-1 overflow-y-auto scrollbar-hide px-5 pb-28">
+        <div className="flex-1 overflow-y-auto scrollbar-hide px-1 pb-24">
             <div className="pr-1">
                 {[...MOCK_PROFILES, ...MOCK_PROFILES].map((p, i) => (
                     <motion.div
@@ -375,7 +375,7 @@ const MatchesScreen = React.memo(({ liquidGlassClass }: { liquidGlassClass: stri
                         transition={{ delay: i * 0.05 }}
                         whileHover={{ scale: 1.01, backgroundColor: "rgba(255, 255, 255, 0.9)" }}
                         whileTap={{ scale: 0.98 }}
-                        className="flex items-center gap-4 p-4 rounded-[32px] bg-white/60 backdrop-blur-md border border-white/40 cursor-pointer transition-all shadow-sm mb-3"
+                        className="flex items-center gap-4 py-2 px-4 rounded-[28px] bg-white/60 backdrop-blur-md border border-white/40 cursor-pointer transition-all shadow-sm mb-1"
                     >
                         <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-[#ff4165] p-0.5 shadow-md">
                             <img src={p.image} className="w-full h-full rounded-full object-cover" />
