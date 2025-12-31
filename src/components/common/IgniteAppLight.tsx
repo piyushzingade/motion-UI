@@ -230,13 +230,7 @@ const ProfileCard = React.memo(({
                     </div>
 
                     {/* Badge */}
-                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 z-50">
-                        <div className="bg-[#ff4165] px-6 py-2 rounded-full shadow-lg shadow-[#ff4165]/30 flex items-center justify-center">
-                            <span className="text-[10px] font-black text-white uppercase tracking-wider text-center">
-                                {profile.matchScore}% Similarities
-                            </span>
-                        </div>
-                    </div>
+                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 z-50"><div className="bg-[#ff4165] px-4 py-2 rounded-full shadow-lg shadow-[#ff4165]/30 flex items-center justify-center"><span className="text-[10px] font-black text-white uppercase tracking-wider text-center">{profile.matchScore}% Similarities</span></div></div>
                 </div>
 
                 {/* Content Section */}
