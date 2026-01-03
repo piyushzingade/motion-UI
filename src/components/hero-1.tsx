@@ -16,7 +16,7 @@ import Image from "next/image";
 
 export default function Hero1() {
     return (
-        <div className="relative min-h-screen bg-gradient-to-b from-blue-200 via-blue-100 to-white overflow-x-hidden text-slate-900 selection:bg-blue-200 selection:text-blue-900 font-sans">
+        <div className="relative min-h-screen bg-gradient-to-b from-orange-200 via-orange-100 to-white overflow-x-hidden text-slate-900 selection:bg-orange-200 selection:text-orange-900 font-sans">
             <div className="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
                 <div className="absolute top-[-10%] left-[-10%] w-[70%] h-[80%] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-300/10 via-orange-100/20 to-transparent blur-3xl"></div>
                 <div className="absolute top-[0%] right-[0%] w-[60%] h-[60%] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-50/40 via-transparent to-transparent blur-3xl"></div>
@@ -26,21 +26,21 @@ export default function Hero1() {
             <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
                 <nav className="w-full max-w-[1200px] bg-white/90 backdrop-blur-xl border border-slate-200/60 rounded-full shadow-sm px-6 py-1 flex items-center justify-between transition-all">
                     <div className="flex items-center gap-2.5 cursor-pointer">
-                        <div className="text-blue-600 flex items-center justify-center">
+                        <div className="text-orange-600 flex items-center justify-center">
                             <Disc size={28} strokeWidth={2} />
                         </div>
                         <span className="font-semibold tracking-tight text-slate-900 text-lg">
-                            Orren
+                            FlowAI
                         </span>
                     </div>
 
                     <div className="hidden md:flex items-center gap-8 pl-8">
-                        {["Home", "Features", "Solutions", "Resources", "Pricing"].map(
+                        {["Home", "Features", "Pricing", "About", "Contact"].map(
                             (item) => (
                                 <a
                                     key={item}
                                     href="#"
-                                    className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors"
+                                    className="text-sm font-medium text-slate-500 hover:text-orange-600 transition-colors"
                                 >
                                     {item}
                                 </a>
@@ -51,10 +51,10 @@ export default function Hero1() {
                     {/* Right: Auth Actions */}
                     <div className="flex items-center gap-4">
                         <button className="text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors">
-                            Sign in
+                            Sign In
                         </button>
-                        <button className="bg-gradient-to-b from-blue-400 to-blue-600 shadow-[0_4px_12px_-2px_rgba(37,99,235,0.4),inset_0_1px_0_rgba(255,255,255,0.3)] text-sm font-semibold text-white px-5 py-2.5 rounded-full transition-all hover:opacity-90 active:scale-95">
-                            Sign up
+                        <button className="bg-gradient-to-b from-orange-400 to-orange-600 shadow-[0_4px_12px_-2px_rgba(255,165,0,0.4),inset_0_1px_0_rgba(255,255,255,0.3)] text-sm font-semibold text-white px-5 py-2.5 rounded-full transition-all hover:opacity-90 active:scale-95">
+                            Start Free Trial
                         </button>
                     </div>
                 </nav>
@@ -72,22 +72,21 @@ export default function Hero1() {
                     >
                         <div className="flex flex-col items-start">
                             {/* Badge */}
-                            <div className="inline-flex items-center gap-2 px-4 py-1.5 pl-2 rounded-full bg-blue-50/80 border border-blue-100 text-blue-600 text-xs font-semibold mb-8 shadow-sm">
+                            <div className="inline-flex items-center gap-2 px-4 py-1.5 pl-2 rounded-full bg-orange-50/80 border border-orange-100 text-orange-600 text-xs font-semibold mb-8 shadow-sm">
                                 <Sparkles size={12} />
-                                Powered by GPT-5 AI Agent
+                                Powered by Advanced AI
                             </div>
 
                             <h1 className="text-5xl sm:text-6xl lg:text-[4.5rem] font-semibold text-slate-900 leading-[1.05] tracking-tight mb-6 pl-2">
-                                The System That <br /> Works With You
+                                Streamline Your Workflow <br /> with AI
                             </h1>
 
                             <p className="text-lg text-slate-500 leading-relaxed max-w-lg mb-10 font-medium pl-2">
-                                From planning to execution, every step of your process becomes
-                                seamless, organized, and insight-driven.
+                                Automate tasks, boost productivity, and drive results with our intelligent platform designed for modern teams.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-16 pl-2">
-                                <button className="bg-gradient-to-b from-blue-400 to-blue-600 shadow-[0_4px_12px_-2px_rgba(37,99,235,0.4),inset_0_1px_0_rgba(255,255,255,0.3)] inline-flex items-center justify-center gap-2 text-white font-semibold text-base px-8 py-3.5 rounded-lg transition-transform hover:-translate-y-0.5">
-                                    Start Your Free Trial
+                                <button className="bg-gradient-to-b from-orange-400 to-orange-600 shadow-[0_4px_12px_-2px_rgba(255,165,0,0.4),inset_0_1px_0_rgba(255,255,255,0.3)] inline-flex items-center justify-center gap-2 text-white font-semibold text-base px-8 py-3.5 rounded-lg transition-transform hover:-translate-y-0.5">
+                                    Start Free Trial
                                 </button>
                                 <button className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 shadow-sm font-semibold text-base px-8 py-3.5 rounded-lg transition-colors hover:border-slate-300">
                                     Learn More
@@ -138,10 +137,10 @@ export default function Hero1() {
                         className="w-full"
                     >
                         <p className="text-xl font-bold text-slate-500 mb-8 text-start">
-                            Trusted by the world's fastest growing teams
+                            Trusted by leading companies worldwide
                         </p>
 
-                        <div className="relative w-full overflow-hidden h-20 flex items-center bg-gradient-to-r from-transparent via-blue-50/30 to-transparent rounded-lg">
+                        <div className="relative w-full overflow-hidden h-20 flex items-center bg-gradient-to-r from-transparent via-orange-50/30 to-transparent rounded-lg">
                             <motion.div
                                 className="flex items-center"
                                 animate={{ x: [0, "-50%"] }}
@@ -157,12 +156,12 @@ export default function Hero1() {
                                         key={setIndex}
                                         className="flex items-center gap-16 px-6 shrink-0"
                                     >
-                                        <MarqueeLogo icon={<Waves size={32} />} label="ome" />
-                                        <MarqueeLogo icon={<Flower2 size={32} />} label="Mindfulness" />
-                                        <MarqueeLogo icon={<Sprout size={32} />} label="Blossom" />
-                                        <MarqueeLogo icon={<Zap size={32} />} label="Proline" />
-                                        <MarqueeLogo icon={<Aperture size={32} />} label="luma" />
-                                        <MarqueeLogo icon={<Hexagon size={32} />} label="vertex" />
+                                        <MarqueeLogo icon={<Waves size={32} />} label="TechCorp" />
+                                        <MarqueeLogo icon={<Flower2 size={32} />} label="InnovateInc" />
+                                        <MarqueeLogo icon={<Sprout size={32} />} label="GlobalSolutions" />
+                                        <MarqueeLogo icon={<Zap size={32} />} label="NextGen" />
+                                        <MarqueeLogo icon={<Aperture size={32} />} label="SmartTech" />
+                                        <MarqueeLogo icon={<Hexagon size={32} />} label="FutureWorks" />
                                     </div>
                                 ))}
                             </motion.div>
