@@ -72,24 +72,20 @@ export default function Hero1() {
                     >
                         <div className="flex flex-col items-start">
                             {/* Badge */}
-                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50/80 border border-blue-100 text-blue-600 text-xs font-semibold mb-8 shadow-sm">
+                            <div className="inline-flex items-center gap-2 px-4 py-1.5 pl-2 rounded-full bg-blue-50/80 border border-blue-100 text-blue-600 text-xs font-semibold mb-8 shadow-sm">
                                 <Sparkles size={12} />
                                 Powered by GPT-5 AI Agent
                             </div>
 
-                            {/* Headline */}
-                            <h1 className="text-5xl sm:text-6xl lg:text-[4.5rem] font-semibold text-slate-900 leading-[1.05] tracking-tight mb-6">
+                            <h1 className="text-5xl sm:text-6xl lg:text-[4.5rem] font-semibold text-slate-900 leading-[1.05] tracking-tight mb-6 pl-2">
                                 The System That <br /> Works With You
                             </h1>
 
-                            {/* Subheading */}
-                            <p className="text-lg text-slate-500 leading-relaxed max-w-lg mb-10 font-medium">
+                            <p className="text-lg text-slate-500 leading-relaxed max-w-lg mb-10 font-medium pl-2">
                                 From planning to execution, every step of your process becomes
                                 seamless, organized, and insight-driven.
                             </p>
-
-                            {/* CTA Buttons */}
-                            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-16">
+                            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-16 pl-2">
                                 <button className="bg-gradient-to-b from-blue-400 to-blue-600 shadow-[0_4px_12px_-2px_rgba(37,99,235,0.4),inset_0_1px_0_rgba(255,255,255,0.3)] inline-flex items-center justify-center gap-2 text-white font-semibold text-base px-8 py-3.5 rounded-lg transition-transform hover:-translate-y-0.5">
                                     Start Your Free Trial
                                 </button>
@@ -104,7 +100,6 @@ export default function Hero1() {
 
                     {/* Right Column: Large Dashboard Image */}
                     <div className="relative w-full flex justify-center items-center lg:justify-end perspective-container pl-12">
-                        {/* Dashboard Image */}
                         <motion.div
                             initial={{ opacity: 0, rotateX: 10, rotateY: -18, rotateZ: 2 }}
                             animate={{ opacity: 1, rotateX: 8, rotateY: -15, rotateZ: 2 }}
@@ -120,7 +115,7 @@ export default function Hero1() {
                                 WebkitMaskImage:
                                     "linear-gradient(to bottom, black 65%, transparent 100%)",
                             }}
-                            className="relative rounded-2xl w-full max-w-[1400px] overflow-hidden select-none scale-[1.1] lg:scale-[1.3]"
+                            className="relative rounded-2xl w-full max-w-[1800px] overflow-hidden select-none scale-[1.25] lg:scale-[1.45]"
                         >
                             <Image
                                 width={2400}
@@ -135,14 +130,14 @@ export default function Hero1() {
                 </div>
 
                 {/* Marquee Section */}
-                <section className="absolute bottom-20 left-0 w-full lg:w-[45%] pl-6 lg:pl-12 pr-6">
+                <section className="absolute bottom-20 left-0 w-full lg:w-[55%] pl-12 lg:pl-28">
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
                         className="w-full"
                     >
-                        <p className="text-xl font-bold text-slate-500 mb-8 text-start pl-2">
+                        <p className="text-xl font-bold text-slate-500 mb-8 text-start">
                             Trusted by the world's fastest growing teams
                         </p>
 
