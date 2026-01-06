@@ -10,6 +10,8 @@ import Component8 from "@/components/component-8";
 import Hero1 from "@/components/hero-1";
 import Hero2 from "@/components/hero-2";
 import Hero3 from "@/components/hero-3";
+import { Hero4 } from "@/components/hero4";
+import Landing from "@/components/landing";
 
 export default function Home() {
   return (
@@ -18,7 +20,7 @@ export default function Home() {
       {/* <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-200/40 rounded-full blur-[120px] -z-10" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-200/40 rounded-full blur-[120px] -z-10" /> */}
 
-      <Hero3 />
+      <Hero4 />
     </div>
   );
 }

@@ -1,14 +1,14 @@
 "use client"
 import React, { useMemo } from 'react';
 import { motion } from 'motion/react';
-import { Check, Star, ArrowRight, Terminal, Cloud, Shield, Database, Layout, GitBranch, Server, Zap, Globe, Github } from 'lucide-react';
+import { Check, Star, ArrowRight, Terminal, Cloud, Github } from 'lucide-react';
 import Header from './Header';
 
 export interface ShopItem {
     uniqid: string;
     title: string;
     category: string;
-    icon: React.ElementType;
+    imageUrl: string;
 }
 
 export interface Stat {
@@ -17,12 +17,12 @@ export interface Stat {
     hasRating?: boolean;
 }
 const MOCK_PRODUCTS: ShopItem[] = [
-    { uniqid: '1', title: 'Edge Compute', category: 'Infrastructure', icon: Zap },
-    { uniqid: '2', title: 'CI/CD Pipeline', category: 'DevOps', icon: GitBranch },
-    { uniqid: '3', title: 'Cloud Database', category: 'Storage', icon: Database },
-    { uniqid: '4', title: 'API Gateway', category: 'Network', icon: Globe },
-    { uniqid: '5', title: 'Bare Metal', category: 'Compute', icon: Server },
-    { uniqid: '6', title: 'Auth Service', category: 'Security', icon: Shield },
+    { uniqid: '1', title: 'Edge Compute', category: 'Infrastructure', imageUrl: '/card-1.jpg' },
+    { uniqid: '2', title: 'CI/CD Pipeline', category: 'DevOps', imageUrl: '/card-2.jpg' },
+    { uniqid: '3', title: 'Cloud Database', category: 'Storage', imageUrl: '/card-3.jpg' },
+    { uniqid: '4', title: 'API Gateway', category: 'Network', imageUrl: '/card-4.jpg' },
+    { uniqid: '5', title: 'Bare Metal', category: 'Compute', imageUrl: '/card-5.jpg' },
+    { uniqid: '6', title: 'Auth Service', category: 'Security', imageUrl: '/card-1.jpg' },
 ];
 
 const STATS: Stat[] = [
@@ -229,33 +229,38 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ item }: ProductCardProps) => {
-    const Icon = item.icon;
-
     return (
-        <div className="w-full h-72 shrink-0 rounded-[32px] p-8 flex flex-col items-center justify-center text-center relative group transition-all duration-700 overflow-hidden">
-            {/* Base Layer */}
-            <div className="absolute inset-0 bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] rounded-[32px] group-hover:bg-white/[0.06] group-hover:border-[#FF84C0]/30 transition-all duration-500" />
+        <div className="w-full h-72 shrink-0 rounded-[32px] relative group transition-all duration-700 overflow-hidden">
+            {/* Image Background */}
+            <div className="absolute inset-0">
+                <img
+                    src={item.imageUrl}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80 group-hover:from-black/40 group-hover:to-black/70 transition-all duration-500" />
+            </div>
+
+            {/* Border */}
+            <div className="absolute inset-0 border border-white/[0.08] rounded-[32px] group-hover:border-[#FF84C0]/30 transition-all duration-500" />
 
             {/* Subtle Glow */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#FF84C0]/[0.03] to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#FF84C0]/[0.05] to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             {/* Content */}
-            <div className="relative z-10 flex flex-col items-center w-full">
-                <div className="w-16 h-16 rounded-2xl bg-[#FF84C0]/10 border border-[#FF84C0]/20 flex items-center justify-center mb-6 text-[#FF84C0] group-hover:scale-110 group-hover:bg-[#FF84C0] group-hover:text-white transition-all duration-500">
-                    <Icon size={28} strokeWidth={1.5} />
-                </div>
-
+            <div className="relative z-10 h-full flex flex-col items-center justify-center text-center p-8">
                 <h3 className="text-xl font-bold text-white mb-2 tracking-tight">
                     {item.title}
                 </h3>
 
-                <p className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em]">
+                <p className="text-[10px] font-bold text-white/50 uppercase tracking-[0.2em]">
                     {item.category}
                 </p>
             </div>
 
             {/* Decorative Bottom Bar */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-8 h-[2px] bg-white/10 rounded-full group-hover:w-12 group-hover:bg-[#FF84C0] transition-all duration-500" />
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-8 h-[2px] bg-white/20 rounded-full group-hover:w-12 group-hover:bg-[#FF84C0] transition-all duration-500" />
         </div>
     );
 };
